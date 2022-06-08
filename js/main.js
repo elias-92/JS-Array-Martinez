@@ -72,7 +72,9 @@
 //     alert("Opcion incorrecta!! Por favor vuelva a ingresar una opcion.");
 // }
 
-let monto = parseFloat(prompt("ingrese el monto a calcular"));
+// FUNCION
+
+/* let monto = parseFloat(prompt("ingrese el monto a calcular"));
 let tiempo = parseInt(prompt("ingrese el num de cuotas"));
 let interes = parseFloat(prompt("ingrese el interes anual"));
 
@@ -91,4 +93,39 @@ function calcularCuota(monto, tiempo, interes) {
 
 
 }
-calcularCuota(monto, tiempo, interes);
+calcularCuota(monto, tiempo, interes); */
+
+
+// ARRAY
+
+productos = [];
+
+
+function agregarProducto() {
+
+    let prod = prompt("Agregue productos a comprar \n Para salir presione 5");
+    while (prod !== "5") {
+        if (prod === "") {
+            alert("Por favor agregue un producto")
+        } else if (!existeProducto(prod)) {
+
+            productos.push(prod);
+            alert("Se agrego el producto correctamente.");
+        } else {
+            alert("Este producto ya existe");
+        }
+        prod = prompt("Agregue productos a comprar \n Para salir presione 5");
+    }
+}
+
+function existeProducto(prod) {
+    for (let i = 0; i < productos.length; i++) {
+        const element = productos[i];
+        if (element.trim().toUpperCase() === prod.trim().toUpperCase()) {
+            return true;
+        }
+    }
+    return false;
+}
+agregarProducto();
+console.log(productos);
