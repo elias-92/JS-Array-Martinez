@@ -132,10 +132,36 @@ console.log(productos) */;
 
 // <-------------  MANIPULAR EL DOM ------------->
 
-const container = document.getElementById('container');
+/* const container = document.getElementById('container');
 
 document.getElementsByTagName('h1')[0].innerText = 'Manipulacion del DOM';
 
 let li = document.createElement('li');
 li.innerHTML = `<li>Elemento agregado desde js</li>`;
-container.appendChild(li);
+container.appendChild(li); */
+
+
+
+// <-------------- INCORPORAR EVENTO ----------->
+
+const ul = document.getElementById('ul');
+const btnAgregar = document.getElementById('btn');
+const input = document.getElementById('input');
+
+const paises = [];
+
+
+
+btnAgregar.addEventListener('click', ()=>{
+    let valor = input.value;
+    paises.push(valor);
+    agregarPais();
+})
+
+function agregarPais(){
+    let pais = input.value;
+    let li = document.createElement('li');
+    li.innerHTML = `<li>${pais}</li>`;
+    ul.appendChild(li);
+}
+console.log(paises);
